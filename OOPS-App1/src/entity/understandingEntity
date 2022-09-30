@@ -1,0 +1,28 @@
+
+entity package contains business objects 
+  like 
+    Account 
+    Bank
+    Policy 
+    Insurance 
+    Stocks 
+    TradingAccount
+    KYC-Details 
+    
+    
+    
+ for example Flight Management System
+ 
+  1) Flight 
+  2) Customer 
+  3) Airport 
+  4) BoardingDetails 
+  5) Staff
+  
+  
+  Amazon 
+  
+   1) Product
+   2) User 
+   3) DeliveryAgaent 
+   
