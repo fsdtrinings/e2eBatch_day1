@@ -1,7 +1,6 @@
 package allsets;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import allList.Employee;
 
@@ -19,7 +18,7 @@ public class SetDemo2 {
 		Employee e6 = new Employee("e", 105, 4000);
 		
 		
-		Set<Employee> empSet = new HashSet<>();
+		Set<Employee> empSet = new HashSet();
 		empSet.add(e1);
 		empSet.add(e2);
 		empSet.add(e3);

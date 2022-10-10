@@ -1,10 +1,14 @@
 package allList;
-
-public class Employee {
+                       // step 1 
+public class Employee implements Comparable<Employee>{
 
 	private String name;
 	private int id;
 	private int salary;
+	private String location;
+	private int yearOfExp;
+	private long pinCode;
+	
 	
 	public Employee() {
 		super();
@@ -15,6 +19,38 @@ public class Employee {
 		this.name = name;
 		this.id = id;
 		this.salary = salary;
+	}
+	
+	
+	
+	public Employee(String name, int id, int salary, String location, int yearOfExp, long pinCode) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.salary = salary;
+		this.location = location;
+		this.yearOfExp = yearOfExp;
+		this.pinCode = pinCode;
+	}
+	
+	
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public int getYearOfExp() {
+		return yearOfExp;
+	}
+	public void setYearOfExp(int yearOfExp) {
+		this.yearOfExp = yearOfExp;
+	}
+	public long getPinCode() {
+		return pinCode;
+	}
+	public void setPinCode(long pinCode) {
+		this.pinCode = pinCode;
 	}
 	public String getName() {
 		return name;
@@ -34,12 +70,15 @@ public class Employee {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	@Override
-	public String toString() {
-		return "Employee [name=" + name + ", id=" + id + ", salary=" + salary + "]";
-	}
+
 	
 
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", id=" + id + ", salary=" + salary + ", location=" + location
+				+ ", yearOfExp=" + yearOfExp + ", pinCode=" + pinCode + "]";
+	}
+	
 	@Override
 	public int hashCode() {
 		// algo for hash code 
@@ -49,7 +88,7 @@ public class Employee {
 	@Override
 	public boolean equals(Object obj) {
 		
-		/* code to inform java , how to compare two employees*/
+		 //code to inform java , how to compare two employees
 		
 		// type cast obj to Employee type 
 		//System.out.println(" inside equals for employee :- "+id);
@@ -74,35 +113,17 @@ public class Employee {
 			// in case if not employee , so not comprable 
 		}
 		
-		
 	
-		
 	}
-	
+	@Override
+	public int compareTo(Employee e2) {
+		
+		return  e2.getId()-this.id;
+	}
 
+	
+	
+	
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
