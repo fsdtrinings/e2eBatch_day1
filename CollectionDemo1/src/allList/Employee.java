@@ -38,12 +38,21 @@ public class Employee {
 	public String toString() {
 		return "Employee [name=" + name + ", id=" + id + ", salary=" + salary + "]";
 	}
+	
+
+	@Override
+	public int hashCode() {
+		// algo for hash code 
+	//	System.out.println(" inside Hashcode code for employee :- "+id);
+		return id+salary+name.length()+3;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		
 		/* code to inform java , how to compare two employees*/
 		
 		// type cast obj to Employee type 
+		//System.out.println(" inside equals for employee :- "+id);
 		
 		if(obj instanceof Employee)
 		{
