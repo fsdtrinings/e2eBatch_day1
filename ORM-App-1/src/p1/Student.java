@@ -1,14 +1,24 @@
 package p1;
 
+import java.util.List;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "CAPG_Student")
 public class Student {
 
 	@Id
 	private int id;
+	@Column(name="Participant_Name")
 	private String studentName;
 	private String batchName;
 	private int raiting;
@@ -17,6 +27,24 @@ public class Student {
 	
 	@Embedded
 	private Address address;
+	
+	@Embedded
+	@AttributeOverrides({
+	      @AttributeOverride(name = "houseNumber", column = @Column(name = "temp_houseNumber")),
+	      @AttributeOverride(name = "city", column = @Column(name = "temp_city")),
+	      @AttributeOverride(name = "state", column = @Column(name = "temp_state")),
+	      @AttributeOverride(name = "country", column = @Column(name = "temp_country")),
+	      @AttributeOverride(name = "pincode", column = @Column(name = "temp_pincode")),
+	})
+	private Address tempAddress;
+	
+	
+	@ElementCollection
+	@CollectionTable(name = "StudentCertificates")
+	private List<Certification> allCertificates;
+	
+	
+	
 	
 	public Student() {
 		super();
@@ -31,6 +59,21 @@ public class Student {
 		this.projectTeam = projectTeam;
 	}
 	
+	
+	
+	
+	public List<Certification> getAllCertificates() {
+		return allCertificates;
+	}
+	public void setAllCertificates(List<Certification> allCertificates) {
+		this.allCertificates = allCertificates;
+	}
+	public Address getTempAddress() {
+		return tempAddress;
+	}
+	public void setTempAddress(Address tempAddress) {
+		this.tempAddress = tempAddress;
+	}
 	public Address getAddress() {
 		return address;
 	}
