@@ -1,5 +1,6 @@
 package p1;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,6 +14,10 @@ public class Student {
 	private int raiting;
 	private String remarks;
 	private String projectTeam;
+	
+	@Embedded
+	private Address address;
+	
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -24,6 +29,13 @@ public class Student {
 		this.raiting = raiting;
 		this.remarks = remarks;
 		this.projectTeam = projectTeam;
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public int getId() {
 		return id;
@@ -61,6 +73,12 @@ public class Student {
 	public void setProjectTeam(String projectTeam) {
 		this.projectTeam = projectTeam;
 	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", studentName=" + studentName + ", batchName=" + batchName + ", raiting="
+				+ raiting + ", remarks=" + remarks + ", projectTeam=" + projectTeam + ", address=" + address + "]";
+	}
+
 	
 	
 	
