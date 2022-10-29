@@ -16,21 +16,24 @@ public class DatabaseOperation {
 	public static void main(String[] args) {
 		Session hibernate = HibernateConnection.getHibernateLink();
 
-		Address a = new Address("New Town-777","Pune", "Mah.", "India", 220058);
+		Address a = new Address("New Town-741","Pune", "Mah.", "India", 220058);
 		Address tempAddress = new Address("CenterCity-234","Banglore", "Karnataka","India",123456);
 		
 		Certification c1 = new Certification(952,"Java", "Hackrank - 1", LocalDate.of(2021, 1, 23).toString() ,LocalDate.of(2025, 1, 22).toString(), "Very Good");
-		Certification c2 = new Certification(953,"Spring", "Hackrank - 2", LocalDate.of(2021, 3, 23).toString() ,LocalDate.of(2025, 3, 22).toString(), "Very Good");
-		Certification c3 = new Certification(954,"Plantation", "Colg Event - 1", LocalDate.of(2022, 11, 1).toString() ,null, "1st Position");
 		
-		List<Certification> s1AllCertificates = Arrays.asList(c1,c2,c3);
+		List<Certification> s1AllCertificates = Arrays.asList(c1);
 		
 		
-		Student s1 = new Student("Amit Kumar", "Tester",4 , "Re Exam", "On Banch");
-		s1.setId(101);
+		Hostel boysHostel = new Hostel(3000, "Hostel-A",151, 35000, 25000, "Make it clean");
+		
+		
+		
+		Student s1 = new Student("Mike", "Sales",4 , "Re Exam", "On Banch");
+		s1.setId(102);
 		s1.setAddress(a);
 		s1.setTempAddress(tempAddress);
 		s1.setAllCertificates(s1AllCertificates);
+		s1.setHostelInfo(boysHostel);
 
 		 insertSudent(hibernate, s1);
 		 
