@@ -25,6 +25,13 @@ public class MainApp {
 		System.out.println(s1);
 		System.out.println(s1.getName());
 		
+		System.out.println("==========================");
+		
+		Student s2 = spring.getBean("s778",Student.class);
+		System.out.println(s2);
+		System.out.println(s2.getName());
+		System.out.println(s2.getSubject());
+		System.out.println(s2.getSubject().getWeightage()+" - "+s2.getSubject().getInstructorName());
 		
 	}
 }

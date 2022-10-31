@@ -5,7 +5,40 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+		<!--   this will call all args constructor   -->
+		<bean id="s777" class="com.mkj.demo.entity.Student">
+			<constructor-arg name="rollNumber" value="55"></constructor-arg>
+			<constructor-arg name="name" value="Ramesh Kumar"></constructor-arg>
+			<constructor-arg name="marks" value="505"></constructor-arg>
+			
+		</bean>
 		
-		<bean id="s777" class="com.mkj.demo.entity.Student"></bean>
+	
+		<!--   this will call setter methods   -->
+		<bean id="s778" class="com.mkj.demo.entity.Student">
+			<property name="rollNumber" value="88"></property>
+			<property name="name" value="Vipin"></property>
+			<property name="marks" value="188"></property>
+			<property name="subject" ref="tech-subject"></property>
+			
+		</bean>
 		
+		<bean id="tech-subject" class="com.mkj.demo.entity.Subject">
+			<property name="subjectName" value="Software Testing"></property>
+			<property name="weightage" value="5"></property>
+			<property name="instructorName" value="Sai Kumar"></property>
+			
+		</bean>
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+
