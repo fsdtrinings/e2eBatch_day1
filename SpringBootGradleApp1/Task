@@ -1,0 +1,9 @@
+
+Student
+{
+  // Add private String location 
+}
+
+
+code for endpoint 
+ GET :  ......8001/student/{marks1}/{marks2}?stream=IT&location=Banglore
