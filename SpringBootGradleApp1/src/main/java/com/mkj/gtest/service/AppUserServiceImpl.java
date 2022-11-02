@@ -7,18 +7,24 @@ import org.springframework.stereotype.Service;
 
 import com.mkj.gtest.dao.AppUserDAO;
 import com.mkj.gtest.entity.AppUser;
+import com.mkj.gtest.repository.AppUserRepository;
 
 
 @Service
 public class AppUserServiceImpl implements AppUserService{
 
-	@Autowired
-	AppUserDAO userDao;
 	
+	@Autowired
+	AppUserRepository userRepository;
 	
 	@Override
 	public String insertUser(AppUser user) throws Exception {
-		return userDao.insertAppUser(user);
+		AppUser savedUser =  userRepository.save(user);  // Note :  save() is already implemented by Spring Data JPA
+		if(savedUser != null)
+		{
+			return "App User Saved "+savedUser.getUserId()+" username :- "+savedUser.getUsername();
+		}
+		else return null;
 	}
 
 	@Override
@@ -26,7 +32,8 @@ public class AppUserServiceImpl implements AppUserService{
 		
 		// may contains other code like security , loggging , validation 
 		
-		return userDao.getAllUsers();
+		List<AppUser> allUsers =  userRepository.findAll(); // Note : same as save
+		return allUsers;
 	}
 
 	@Override
@@ -39,12 +46,14 @@ public class AppUserServiceImpl implements AppUserService{
 	public AppUser getUserByUserName(String username) throws Exception {
 		// validation , security 
 		
-		return userDao.getUserByUserName(username);
+		//return userRepository.getUserByUserName(username);
+		return null;
 	}
 	
 	@Override
 	public AppUser getUserByUserNameAndRole(String username, String role) throws Exception {
-		return userDao.getUserByUserNameAndRole(username, role);
+		//return userRepository.getUserByUserNameAndRole(username, role);
+		return null;
 	}
 
 	@Override
