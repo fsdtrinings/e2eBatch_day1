@@ -15,6 +15,12 @@ public class AppUserServiceImpl implements AppUserService{
 	@Autowired
 	AppUserDAO userDao;
 	
+	
+	@Override
+	public String insertUser(AppUser user) throws Exception {
+		return userDao.insertAppUser(user);
+	}
+
 	@Override
 	public List<AppUser> getAllUsers() throws Exception {
 		

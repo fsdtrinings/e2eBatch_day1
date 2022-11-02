@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +27,21 @@ public class MyWebController {
 		System.out.println("\n\n\n====>> Inside Constructor "+this);
 	}
 
+	@PostMapping("/user")
+	public String addUser(@RequestBody AppUser user) 
+	{
+		/*
+		 * // request body annotation  , help u 
+		 * to take user information as JSON , so it convert JSON object to AppIser Object
+		 * */
+		try {
+			return userService.insertUser(user);
+		} catch (Exception e) {
+			return "Contact to customer care 1800-250-960 or mail us :- care@capg.com";
+		}
+	}
+	
+	
 
 	@GetMapping("/welcome")
 	public String abc()

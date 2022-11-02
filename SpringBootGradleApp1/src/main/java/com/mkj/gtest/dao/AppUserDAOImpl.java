@@ -43,9 +43,16 @@ public class AppUserDAOImpl implements AppUserDAO {
 	}
 
 	
+	@Override
+	public String insertAppUser(AppUser user) throws Exception {
+		 List<AppUser> list =   db.getAllUsers();
+		 list.add(user);
+		 db.setAllUsers(list); // adding the new user in the previous list
+		 return "done";
+	}
 	
 	
-	
+
 	@Override
 	public AppUser getUserByUserNameAndRole(String username, String role) throws Exception {
 		List<AppUser> allUsers = getAllUsers();

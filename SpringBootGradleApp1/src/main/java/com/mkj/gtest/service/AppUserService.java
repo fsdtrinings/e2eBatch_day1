@@ -13,4 +13,6 @@ public interface AppUserService {
 	public AppUser getUserByUserName(String username)throws Exception;
 	public List<AppUser> getUsersConnections(String username)throws Exception;
 	public AppUser getUserByUserNameAndRole(String username,String role)throws Exception;
+	
+	public String insertUser(AppUser user)throws Exception;
 }

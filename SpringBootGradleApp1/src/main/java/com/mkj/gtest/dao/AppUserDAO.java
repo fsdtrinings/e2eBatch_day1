@@ -15,4 +15,7 @@ public interface AppUserDAO {
 	public List<AppUser> getUsersConnections(String username)throws Exception;
 	public AppUser getUserByUserNameAndRole(String username,String role)throws Exception;
 	
+	
+	public String insertAppUser(AppUser user)throws Exception;
+	
 }
