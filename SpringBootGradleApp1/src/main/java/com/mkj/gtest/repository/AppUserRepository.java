@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.mkj.gtest.entity.AppUser;
 
 @Repository
-public interface AppUserRepository extends JpaRepository<AppUser, Integer>
+public interface AppUserRepository extends JpaRepository<AppUser, Integer> , IAppUserCustomRepository
 {
  // no code at all
 }

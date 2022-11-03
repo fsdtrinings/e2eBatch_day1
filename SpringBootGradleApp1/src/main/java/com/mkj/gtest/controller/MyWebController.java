@@ -49,6 +49,27 @@ public class MyWebController {
 		return "Welcome to Facebook";
 	}
 	
+	
+	
+	// http://localhost:8001/facebook/userandrole/ramesh
+		@GetMapping("/roles/{role}")
+		public List<AppUser> abc(@PathVariable String role)throws Exception
+		{
+			System.out.println(" --->> 1 Inside controller "+role);
+			return userService.getUsersByRole(role);
+		}
+	
+	
+		@GetMapping("/usersbyId")
+		public List<AppUser> usersById(@RequestParam int r1 , @RequestParam int r2)throws Exception
+		{
+			
+			return userService.getUsersBetweenIds(r1, r2);
+		}	
+	
+	
+	
+	
 	// http://localhost:8001/facebook/userandrole/ramesh
 	@GetMapping("/user/{searchUsername}")
 	public AppUser abc2(@PathVariable String searchUsername)throws Exception

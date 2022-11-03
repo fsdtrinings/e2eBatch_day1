@@ -13,6 +13,8 @@ public interface AppUserService {
 	public AppUser getUserByUserName(String username)throws Exception;
 	public List<AppUser> getUsersConnections(String username)throws Exception;
 	public AppUser getUserByUserNameAndRole(String username,String role)throws Exception;
+	public List<AppUser> getUsersByRole(String role)throws Exception;
+	public List<AppUser> getUsersBetweenIds(int range1,int range2)throws Exception;
 	
 	public String insertUser(AppUser user)throws Exception;
 }

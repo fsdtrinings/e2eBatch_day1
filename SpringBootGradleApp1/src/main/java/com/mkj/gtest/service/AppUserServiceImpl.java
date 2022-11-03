@@ -26,6 +26,27 @@ public class AppUserServiceImpl implements AppUserService{
 		}
 		else return null;
 	}
+	
+	
+	
+
+	@Override
+	public List<AppUser> getUsersBetweenIds(int range1, int range2) throws Exception {
+		
+		return userRepository.getUsersBetweenIds(range1, range2);
+	}
+
+
+
+
+	@Override
+	public List<AppUser> getUsersByRole(String role) throws Exception {
+		
+		System.out.println(" ---->> Inside Servive Impl role "+role);
+		return userRepository.getAllUsersByRole(role);
+	}
+
+
 
 	@Override
 	public List<AppUser> getAllUsers() throws Exception {
@@ -44,10 +65,8 @@ public class AppUserServiceImpl implements AppUserService{
 
 	@Override
 	public AppUser getUserByUserName(String username) throws Exception {
-		// validation , security 
 		
-		//return userRepository.getUserByUserName(username);
-		return null;
+		return userRepository.getUsersByUsername(username);
 	}
 	
 	@Override
